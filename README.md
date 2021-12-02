@@ -1,7 +1,18 @@
 # osteaching
 综合课程设计后端
-
 初始状态下的main分支已完成学生登录的编写，以供参考。
+
+## 关于命名规范
+除了实体类和与实体类绑定的repository接口外（没办法，数据库带了t_字眼），类名大驼峰属性名小驼峰
+
+## 关于哪些文件不要动，哪些文件随便动，配合git工作流食用
+test文件夹下的东西随便玩，我已经加到gitignore里了。
+
+实体类与实体类绑定的repository接口不要动了。*如果你需要在某个与实体类绑定repository接口里添加新的抽象方法，就再建新的repository接口，命名描述你的工作，如：StudentLoginRepository。*
+![image](https://user-images.githubusercontent.com/54850606/144381056-cd9e444b-e913-4ff8-8da4-32d093bd836e.png)
+上图的东西别动
+
+与自己的工作无关的东西尽量别动。
 
 ## 关于git工作流（感谢zyc）
 1. 开始工作前，请务必在GitHub上属于你远程分支，分支用`dev-你名字的缩写`命名，如dev-cdc
