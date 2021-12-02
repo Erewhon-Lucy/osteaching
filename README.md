@@ -6,12 +6,10 @@
 ## 关于命名规范
 除了实体类和与实体类绑定的repository接口外，类名大驼峰属性名小驼峰
 
-那两种类命名有个_（数据库带了t_字眼，就不用改了）
-
 ## 关于哪些文件不要动，哪些文件随便动，配合git工作流食用
 test文件夹下的东西随便玩，我已经加到gitignore里了。
 
-实体类与实体类绑定的repository接口不要动了。__如果你需要在某个与实体类绑定repository接口里添加新的抽象方法，就再建新的repository接口，命名描述你的工作，如：StudentLoginRepository。__
+实体类与实体类绑定的repository接口不要动了。__如果你需要在某个与实体类绑定repository接口里添加新的抽象方法，就再建新的repository接口，命名描述你的工作，如：StudentLoginRepository。__ *虽然这样并不规范，但是能避免conflictQAQ*
 
 ![image](https://user-images.githubusercontent.com/54850606/144381056-cd9e444b-e913-4ff8-8da4-32d093bd836e.png)
 
