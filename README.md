@@ -6,6 +6,7 @@
 ## 关于命名规范
 除了实体类和与实体类绑定的repository接口外，类名大驼峰属性名小驼峰
 
+
 ## 关于哪些文件不要动，哪些文件随便动，配合git工作流食用
 test文件夹下的东西随便玩，我已经加到gitignore里了。
 
@@ -49,3 +50,16 @@ test文件夹下的东西随便玩，我已经加到gitignore里了。
    - 有冲突的话手动解决一下再push
 6. 所有更改上传完成后点击`Pull Request`
 7. 对git工作流使用还有不懂的直接问或者网上搜。遇到不得不动别人写的东西的时候（比如repository下的那些接口），说清楚，然后一起手动解决冲突QAQ。
+
+## 关于接口的返回
+请按照如下方法设置接口及其返回值，例如：
+
+```
+@RequestMapping("/selectById")
+public RetResult<UserInfo> selectById(Integer id){
+    UserInfo userInfo = userInfoService.selectById(id);
+    return RetResponse.makeOKRsp(userInfo);
+}
+```
+
+*参考教程：https://www.cnblogs.com/yui66/p/9615709.html*
