@@ -3,6 +3,8 @@
 
 初始状态下的main分支已完成学生登录的编写，以供参考。
 
+__请将自己本地mysql的用户名改为root，密码改为mysqlroot，以免与application.yml文件冲突__
+
 ## 关于命名规范
 除了实体类和与实体类绑定的repository接口外，类名大驼峰属性名小驼峰
 
