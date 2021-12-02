@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/student")
+@RequestMapping("/studentlogin")
 public class StudentLoginController {
     @Autowired
     private StudentLoginRepository studentLoginRepository;
 
-    @GetMapping("/login/{name}/{password}")
+    @GetMapping("/{name}/{password}")
     public RetResult<List<T_Student>> findByNameAndPassword(@PathVariable("name") String name, @PathVariable("password") String password) {
         return RetResponse.makeOKRsp(studentLoginRepository.findByNameAndPassword(name,password));
     }
