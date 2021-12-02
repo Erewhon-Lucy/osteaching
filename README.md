@@ -9,7 +9,9 @@
 test文件夹下的东西随便玩，我已经加到gitignore里了。
 
 实体类与实体类绑定的repository接口不要动了。*如果你需要在某个与实体类绑定repository接口里添加新的抽象方法，就再建新的repository接口，命名描述你的工作，如：StudentLoginRepository。*
+
 ![image](https://user-images.githubusercontent.com/54850606/144381056-cd9e444b-e913-4ff8-8da4-32d093bd836e.png)
+
 上图的东西别动
 
 与自己的工作无关的东西尽量别动。
