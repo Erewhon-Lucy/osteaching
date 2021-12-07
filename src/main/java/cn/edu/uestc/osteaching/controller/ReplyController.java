@@ -22,7 +22,7 @@ public class ReplyController {
     @PostMapping
     public void addNewReply(@RequestBody T_Reply reply) {
         Optional<T_Reply> replyOptional = t_replyRepository
-                .findReplyById(reply.getRid());
+                .findReplyByRid(reply.getRid());
         if (replyOptional.isPresent()) {
             throw new IllegalStateException("reply taken.");
         }

@@ -11,5 +11,5 @@ import java.util.Optional;
 public interface T_ReplyRepository extends JpaRepository<T_Reply, Integer> {
     List<T_Reply> findAll();
 
-    Optional<T_Reply> findReplyById(Integer rid);
+    Optional<T_Reply> findReplyByRid(Integer rid);
 }
