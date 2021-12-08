@@ -34,5 +34,32 @@ public class StudentController {
         return RetResponse.makeOKRsp(studentRepository.save(student));
     }
 
+    @GetMapping("/changename/{sid}/{newName}/{password}")
+    public RetResult<T_Student> changeName(@PathVariable("sid") Integer sid, @PathVariable("newName") String newName, @PathVariable("password") String password) {
+        T_Student student = new T_Student();
+        student.setSid(sid);
+        student.setName(newName);
+        student.setPassword(password);
+        return RetResponse.makeOKRsp(studentRepository.save(student));
+    }
 
+    @GetMapping("/changepassword/{sid}/{name}/{newPassword}")
+    public RetResult<T_Student> changePassword(@PathVariable("sid") Integer sid, @PathVariable("name") String name, @PathVariable("newPassword") String newPassword) {
+        T_Student student = new T_Student();
+        student.setSid(sid);
+        student.setName(name);
+        student.setPassword(newPassword);
+        return RetResponse.makeOKRsp(studentRepository.save(student));
+    }
+
+    @GetMapping("/findall")
+    public RetResult<List<T_Student>> findAll() {
+        return RetResponse.makeOKRsp(studentRepository.findAll());
+    }
+
+    @DeleteMapping("/delete/{sid}")
+    public RetResult<Void> delete(@PathVariable("sid") Integer sid) {
+        studentRepository.deleteById(sid);
+        return RetResponse.makeOKRsp();
+    }
 }
