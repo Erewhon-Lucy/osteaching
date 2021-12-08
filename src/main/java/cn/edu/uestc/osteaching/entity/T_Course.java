@@ -21,6 +21,7 @@ public class T_Course {
     private String introduction;
     private String homework;
     private String appendix;
+    private Date subtime;
     private Date date;
     private String place;
     private Integer tid;
