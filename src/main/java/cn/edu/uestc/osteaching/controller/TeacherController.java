@@ -38,4 +38,13 @@ public class TeacherController {
         teacher.setPassword(password);
         return RetResponse.makeOKRsp(teacherRepository.save(teacher));
     }
+
+    @GetMapping("/changepassword/{tid}/{name}/{newPassword}")
+    public RetResult<T_Teacher> changePassword(@PathVariable("tid") Integer tid, @PathVariable("name") String name, @PathVariable("newPassword") String newPassword) {
+        T_Teacher teacher = new T_Teacher();
+        teacher.setTid(tid);
+        teacher.setName(name);
+        teacher.setPassword(newPassword);
+        return RetResponse.makeOKRsp(teacherRepository.save(teacher));
+    }
 }
