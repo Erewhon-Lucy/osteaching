@@ -14,8 +14,8 @@ public class T_Student {
     private String password;
     private String phone;
     private String email;
-    private String gender;
+    private Integer gender;
     private String avatar;
-    private String read_count;
-    private String tid;
+    private Integer read_count;
+    private Integer tid;
 }
