@@ -1,0 +1,105 @@
+CREATE DATABASE osonline;
+
+DROP TABLE  IF EXISTS t_student;
+CREATE TABLE t_student (
+	sid INT AUTO_INCREMENT COMMENT '学生id',
+	NAME VARCHAR(20) NOT NULL UNIQUE COMMENT '用户名',
+	PASSWORD CHAR(32) NOT NULL COMMENT '密码',
+	phone VARCHAR(20) COMMENT '电话号码',
+	email VARCHAR(30) COMMENT '电子邮箱',
+	gender INT COMMENT '性别:0-女，1-男',
+	avatar VARCHAR(50) COMMENT '头像',
+	read_count INT COMMENT '新课程信息数',
+	tid INT COMMENT '教师编号',
+	PRIMARY KEY (sid)
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS t_administrator;
+CREATE TABLE t_administrator (
+      aid INT AUTO_INCREMENT COMMENT '管理员id',
+      NAME VARCHAR(20) NOT NULL UNIQUE COMMENT '用户名',
+      PASSWORD CHAR(32) NOT NULL COMMENT '密码',
+      PRIMARY KEY (aid)
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE  IF EXISTS t_teacher;
+CREATE TABLE t_teacher (
+	tid INT AUTO_INCREMENT COMMENT '教师id',
+	NAME VARCHAR(20) NOT NULL UNIQUE COMMENT '用户名',
+	PASSWORD CHAR(32) NOT NULL COMMENT '密码',
+	phone VARCHAR(20) COMMENT '电话号码',
+	email VARCHAR(30) COMMENT '电子邮箱',
+	gender INT COMMENT '性别:0-女，1-男',
+	avatar VARCHAR(50) COMMENT '头像',
+	PRIMARY KEY (tid)
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE  IF EXISTS t_course;
+CREATE TABLE t_course (
+     cid INT AUTO_INCREMENT COMMENT '课程id',
+     NAME VARCHAR(20) NOT NULL UNIQUE COMMENT '课程名称',
+     HOUR INT COMMENT '课时',
+     photo VARCHAR(50) NOT NULL COMMENT '课程图片',
+     video VARCHAR(50) NOT NULL COMMENT '课程视频',
+     introduction VARCHAR(300) COMMENT '课程简介',
+     homework VARCHAR(300) COMMENT '课程作业',
+     appendix VARCHAR(50) COMMENT '附件',
+     DATE DATETIME COMMENT '上课时间',
+     subtime DATETIME COMMENT '提交时间',
+     place VARCHAR(50) COMMENT '上课地点',
+     tid INT COMMENT '教师编号',
+     PRIMARY KEY (cid)
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+DROP TABLE  IF EXISTS t_message;
+CREATE TABLE t_message (
+     MID INT AUTO_INCREMENT COMMENT '留言id',
+     title VARCHAR(50) NOT NULL COMMENT'留言标题',
+     content VARCHAR(300) NOT NULL  COMMENT '留言内容',
+     DATE DATETIME COMMENT '留言发布时间',
+     count_good INT COMMENT '点赞数量',
+     sid INT COMMENT '留言学生id',
+     tid INT COMMENT '留言教师id',
+     parentid INT COMMENT '被回复留言的id',
+     PRIMARY KEY (MID)
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+DROP TABLE  IF EXISTS t_question;
+CREATE TABLE t_question (
+     qid INT AUTO_INCREMENT COMMENT '问题id',
+     title VARCHAR(50) NOT NULL COMMENT'问题标题',
+     content VARCHAR(300) NOT NULL  COMMENT '问题内容',
+     count_reply INT COMMENT '回复数量',
+     count_good INT COMMENT '点赞数量',
+     DATE DATETIME COMMENT '问题发布时间',
+     sid INT COMMENT '提问学生id',
+     tid INT COMMENT '提问教师id',
+     PRIMARY KEY (qid)
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+DROP TABLE  IF EXISTS t_reply;
+CREATE TABLE t_reply (
+     rid INT AUTO_INCREMENT COMMENT '回答id',
+     content VARCHAR(300) NOT NULL  COMMENT '回答内容',
+     DATE DATETIME COMMENT '回答发布时间',
+     count_good INT COMMENT '点赞数量',
+     qid INT NOT NULL COMMENT '问题编号',
+     sid INT COMMENT '回答学生id',
+     tid INT COMMENT '回答教师id',
+     PRIMARY KEY (rid)
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE  IF EXISTS t_exercise;
+CREATE TABLE t_exercise (
+     eid INT AUTO_INCREMENT COMMENT '实验id',
+     title VARCHAR(50) NOT NULL COMMENT'实验标题',
+     introduction VARCHAR(300) NOT NULL  COMMENT '实验简介',
+     content VARCHAR(50) COMMENT '实验文档',
+     DATE DATETIME COMMENT '实验发布时间',
+     cid INT COMMENT '课程编号',
+     tid INT COMMENT '教师编号',
+     PRIMARY KEY (eid)
+) ENGINE=INNODB DEFAULT CHARSET=utf8;
