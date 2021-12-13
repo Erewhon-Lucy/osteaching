@@ -5,6 +5,7 @@ import cn.edu.uestc.osteaching.repository.T_ReplyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +28,24 @@ public class ReplyController {
             throw new IllegalStateException("reply taken.");
         }
         t_replyRepository.save(reply);
+        System.out.println(reply);
+    }
+
+    @PutMapping(path="/addThumbUp/{rid}")
+    @Transactional
+    public void addNewGood(@PathVariable("rid") Integer rid) {
+        T_Reply reply= t_replyRepository.findReplyByRid(rid).orElseThrow(()->new IllegalStateException(
+                "reply with id"+rid+"does not exist"));
+        reply.addCount_good();
+        System.out.println(reply);
+    }
+
+    @PutMapping(path="/deleteThumbUp/{rid}")
+    @Transactional
+    public void deleteNewGood(@PathVariable("rid") Integer rid) {
+        T_Reply reply= t_replyRepository.findReplyByRid(rid).orElseThrow(()->new IllegalStateException(
+                "reply with id"+rid+"does not exist"));
+        reply.deleteCount_good();
         System.out.println(reply);
     }
 
