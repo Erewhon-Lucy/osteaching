@@ -22,6 +22,18 @@ public class T_Question {
     private Integer sid;
     private Integer tid;
 
+
+    //second update by shuhan
+    public void addCount_reply() {
+        this.count_reply +=1;
+    }
+
+    public void deleteCount_reply() {
+        if(this.count_reply<=0){
+            throw new IllegalStateException("there is no thumb up.");
+        }
+        this.count_reply -=1;
+    }
     // 以下是书涵更新的
     public T_Question() {
     }
