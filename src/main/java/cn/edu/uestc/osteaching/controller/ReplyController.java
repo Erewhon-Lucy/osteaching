@@ -41,11 +41,11 @@ public class ReplyController {
                 "reply with id"+r_rid+"does not exist"));
         bereply.setReplied(true);
 
-        Optional<T_Reply> replyOptional = t_replyRepository
+        /*Optional<T_Reply> replyOptional = t_replyRepository
                 .findReplyByRid(reply.getRid());
         if (replyOptional.isPresent()) {
             throw new IllegalStateException("reply taken.");
-        }
+        }*/
         t_replyRepository.save(reply);
 
         t_questionRepository.findQuestionByQid(reply.getQid()).orElseThrow(()->new IllegalStateException(
