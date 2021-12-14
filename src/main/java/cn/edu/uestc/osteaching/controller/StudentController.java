@@ -63,15 +63,21 @@ public class StudentController {
         return RetResponse.makeOKRsp();
     }
 
-    @PutMapping("/updatereadcount1")
+    @PutMapping("/update_read_count_1")
     public RetResult<Void> updateStuReadCountOne(@RequestBody T_Student student) {
         studentRepository.updateStuReadCountOne(student.getSid());
         return RetResponse.makeOKRsp();
     }
 
-    @PutMapping("updatereadcount0")
+    @PutMapping("/update_read_count_0")
     public RetResult<Void> updateStuReadCountZero(@RequestBody T_Student student) {
         studentRepository.updateStuReadCountZero(student.getSid());
+        return RetResponse.makeOKRsp();
+    }
+
+    @PutMapping("/update_all_read_count_1")
+    public RetResult<Void> updateAllReadCountOne() {
+        studentRepository.updateAllReadCountOne();
         return RetResponse.makeOKRsp();
     }
 }
