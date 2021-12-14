@@ -62,4 +62,16 @@ public class StudentController {
         studentRepository.deleteById(sid);
         return RetResponse.makeOKRsp();
     }
+
+    @PutMapping("/updatereadcount1")
+    public RetResult<Void> updateStuReadCountOne(@RequestBody T_Student student) {
+        studentRepository.updateStuReadCountOne(student.getSid());
+        return RetResponse.makeOKRsp();
+    }
+
+    @PutMapping("updatereadcount0")
+    public RetResult<Void> updateStuReadCountZero(@RequestBody T_Student student) {
+        studentRepository.updateStuReadCountZero(student.getSid());
+        return RetResponse.makeOKRsp();
+    }
 }
