@@ -12,4 +12,19 @@ public interface T_StudentRepository extends JpaRepository<T_Student, Integer> {
     @Transactional
     @Query("update T_Student set read_count = 1")
     void updateAllReadCountOne();
+
+    @Modifying
+    @Transactional
+    @Query("update T_Student set read_count = 0")
+    void updateAllReadCountZero();
+
+    @Modifying
+    @Transactional
+    @Query("update T_Student set read_count = 0 where sid = :sid")
+    void updateStuReadCountZero(Integer sid);
+
+    @Modifying
+    @Transactional
+    @Query("update T_Student set read_count = 1 where sid = :sid")
+    void updateStuReadCountOne(Integer sid);
 }
