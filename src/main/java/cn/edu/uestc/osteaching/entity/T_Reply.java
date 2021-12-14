@@ -17,14 +17,31 @@ public class T_Reply {
     private Integer rid;
     private String content;
     private Date date;
-    private Integer count_good;
+    //private Integer count_good;
     private Integer qid;
     private Integer sid;
     private Integer tid;
+    private boolean isReplied=false;
+    private Integer r_rid;
 
+    public Integer getR_rid() {
+        return r_rid;
+    }
+
+    public void setRrid(Integer r_rid) {
+        this.r_rid = r_rid;
+    }
+
+    public boolean isReplied() {
+        return isReplied;
+    }
+
+    public void setReplied(boolean replied) {
+        isReplied = replied;
+    }
 
     //second update by shuhan
-    public void addCount_good() {
+   /* public void addCount_good() {
         this.count_good +=1;
     }
     public void deleteCount_good() {
@@ -32,19 +49,20 @@ public class T_Reply {
             throw new IllegalStateException("there is no thumb up.");
         }
         this.count_good -=1;
-    }
+    }*/
     // 以下是书涵更新的
     public T_Reply() {
     }
 
-    public T_Reply(Integer rid, String content, Date date, Integer count_good, Integer qid, Integer sid, Integer tid) {
+    public T_Reply(Integer rid, String content, Date date, Integer qid, Integer sid, Integer tid, boolean isReplied, Integer r_rid) {
         this.rid = rid;
         this.content = content;
         this.date = date;
-        this.count_good = count_good;
         this.qid = qid;
         this.sid = sid;
         this.tid = tid;
+        this.isReplied = isReplied;
+        this.r_rid = r_rid;
     }
 
     public Integer getRid() {
@@ -71,13 +89,13 @@ public class T_Reply {
         this.date = date;
     }
 
-    public Integer getCount_good() {
+    /*public Integer getCount_good() {
         return count_good;
     }
 
     public void setCount_good(Integer count_good) {
         this.count_good = count_good;
-    }
+    }*/
 
     public Integer getQid() {
         return qid;
