@@ -17,11 +17,23 @@ public class T_Question {
     private Integer qid;
     private String title;
     private String content;
-    private Integer count_reply;
+    private Integer count_reply=0;
+    //private Integer count_good;
     private Date date;
     private Integer sid;
     private Integer tid;
 
+
+    //third update by shuhan
+    /*public void addCount_good() {
+        this.count_good +=1;
+    }
+    public void deleteCount_good() {
+        if(this.count_good<=0){
+            throw new IllegalStateException("there is no thumb up for question.");
+        }
+        this.count_good -=1;
+    }*/
 
     //second update by shuhan
     public void addCount_reply() {
@@ -30,10 +42,11 @@ public class T_Question {
 
     public void deleteCount_reply() {
         if(this.count_reply<=0){
-            throw new IllegalStateException("there is no thumb up.");
+            throw new IllegalStateException("there is no thumb up for reply.");
         }
         this.count_reply -=1;
     }
+
     // 以下是书涵更新的
     public T_Question() {
     }
