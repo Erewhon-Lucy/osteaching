@@ -28,7 +28,7 @@ public class T_Reply {
         return r_rid;
     }
 
-    public void setRrid(Integer r_rid) {
+    public void setR_rid(Integer r_rid) {
         this.r_rid = r_rid;
     }
 
