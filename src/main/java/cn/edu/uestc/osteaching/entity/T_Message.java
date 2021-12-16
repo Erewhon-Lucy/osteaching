@@ -21,14 +21,22 @@ public class T_Message {
     private Integer count_good;
     private Integer sid;
     private Integer tid;
-    private Integer parentid;
 
+
+    public void addCount_good() {
+        this.count_good +=1;
+    }
+    public void deleteCount_good() {
+        if(this.count_good<=0){
+            throw new IllegalStateException("there is no thumb up for question.");
+        }
+        this.count_good -=1;
+    }
     // 以下是书涵更新的
     public T_Message() {
     }
 
-    public T_Message(Integer mid, String title, String content, Date date, Integer count_good, Integer sid, Integer tid,
-            Integer parentid) {
+    public T_Message(Integer mid, String title, String content, Date date, Integer count_good, Integer sid, Integer tid) {
         this.mid = mid;
         this.title = title;
         this.content = content;
@@ -36,7 +44,6 @@ public class T_Message {
         this.count_good = count_good;
         this.sid = sid;
         this.tid = tid;
-        this.parentid = parentid;
     }
 
     public Integer getMid() {
@@ -95,11 +102,4 @@ public class T_Message {
         this.tid = tid;
     }
 
-    public Integer getParentid() {
-        return parentid;
-    }
-
-    public void setParentid(Integer parentid) {
-        this.parentid = parentid;
-    }
 }
