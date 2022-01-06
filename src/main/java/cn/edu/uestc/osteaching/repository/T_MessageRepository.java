@@ -11,5 +11,5 @@ import java.util.Optional;
 @Repository
 public interface T_MessageRepository extends JpaRepository<T_Message, Integer> {
     List<T_Message> findAll();
-    Optional<T_Message> findMessageByRid(Integer rid);
+    Optional<T_Message> findMessageByMid(Integer mid);
 }
