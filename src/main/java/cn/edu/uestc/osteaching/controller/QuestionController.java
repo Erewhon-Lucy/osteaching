@@ -31,18 +31,21 @@ public class QuestionController {
                 "question with id"+qid+"does not exist"));
     }
 
-    @PostMapping(path = "/addNewQuestion/{title}/{content}/{sid}/{tid}")
+    @PostMapping(path = "/addNewQuestion")///{title}/{content}/{sid}/{tid}
     @Transactional
-    public void addNewQuestion(@PathVariable("title")String title,
-                               @PathVariable("content") String content,
-                               @PathVariable("sid") Integer sid,
-                               @PathVariable("tid") Integer tid) {
-            T_Question question=new T_Question();
-            question.setTitle(title);
-            question.setContent(content);
-            question.setSid(sid);
-            question.setTid(tid);
-            question.setDate(new Date());
+    public void addNewQuestion(
+            @RequestBody T_Question question
+//            @PathVariable("title")String title,
+//                               @PathVariable("content") String content,
+//                               @PathVariable("sid") Integer sid,
+//                               @PathVariable("tid") Integer tid
+    ) {
+//            T_Question question=new T_Question();
+//            question.setTitle(title);
+//            question.setContent(content);
+//            question.setSid(sid);
+//            question.setTid(tid);
+//            question.setDate(new Date());
             /*Optional<T_Question> questionOptional = t_questionRepository
                 .findQuestionByQid(question.getQid());
         if (questionOptional.isPresent()) {

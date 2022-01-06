@@ -18,7 +18,7 @@ public class T_Question {
     private String title;
     private String content;
     private Integer count_reply=0;
-    //private Integer count_good;
+    private Integer count_good;
     private Date date;
     private Integer sid;
     private Integer tid;
