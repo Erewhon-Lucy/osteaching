@@ -19,6 +19,9 @@ public class TeacherController {
     @CrossOrigin
     @GetMapping("/login/{name}/{password}")
     public RetResult<List<T_Teacher>> login(@PathVariable("name") String name, @PathVariable("password") String password) {
+        if (teacherRepository.findByNameAndPassword(name, password).isEmpty()) {
+            return RetResponse.makeErrRsp("Failed!");
+        }
         return RetResponse.makeOKRsp(teacherRepository.findByNameAndPassword(name,password));
     }
 
