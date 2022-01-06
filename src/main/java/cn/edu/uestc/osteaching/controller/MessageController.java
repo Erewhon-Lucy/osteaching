@@ -24,16 +24,16 @@ public class MessageController {
     @PutMapping(path="/addThumbUp/{mid}")
     @Transactional
     public void addNewGood(@PathVariable("mid") Integer mid) {
-        T_Message message= t_messageRepository.findMessageByRid(mid).orElseThrow(()->new IllegalStateException(
+        T_Message message= t_messageRepository.findMessageByMid(mid).orElseThrow(()->new IllegalStateException(
                 "message with id"+mid+"does not exist"));
         message.addCount_good();
-        System.out.println(message);
+        //System.out.println(message);
     }
 
     @PutMapping(path="/deleteThumbUp/{mid}")
     @Transactional
     public void deleteNewGood(@PathVariable("mid") Integer mid) {
-       T_Message message= t_messageRepository.findMessageByRid(mid).orElseThrow(()->new IllegalStateException(
+       T_Message message= t_messageRepository.findMessageByMid(mid).orElseThrow(()->new IllegalStateException(
                 "message with id"+mid+"does not exist"));
         message.deleteCount_good();
         System.out.println(message);
@@ -42,7 +42,7 @@ public class MessageController {
     @DeleteMapping(path = "{mid}")
     @javax.transaction.Transactional
     public void deleteMessage(@PathVariable("mid") Integer mid) {
-        T_Message message= t_messageRepository.findMessageByRid(mid).orElseThrow(()->new IllegalStateException(
+        T_Message message= t_messageRepository.findMessageByMid(mid).orElseThrow(()->new IllegalStateException(
                 "message with id"+mid+"does not exist"));
         t_messageRepository.deleteById(mid);
     }
