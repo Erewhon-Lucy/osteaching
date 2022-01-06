@@ -83,7 +83,7 @@ public class QuestionController {
     }
 
     @Transactional//不需要sql
-    @PutMapping(path="/update/{qid}/{content}")
+    @PostMapping(path="/update/{qid}/{content}")
     public void updateQuestion(@PathVariable("qid") Integer qid,
                                @PathVariable("content") String updateContent) {
         T_Question question=t_questionRepository.findQuestionByQid(qid)
