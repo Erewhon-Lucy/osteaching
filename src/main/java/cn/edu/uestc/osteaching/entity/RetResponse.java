@@ -2,6 +2,7 @@ package cn.edu.uestc.osteaching.entity;
 
 public class RetResponse {
     private final static String SUCCESS = "success";
+    private final static String FAILED = "failed";
 
     public static <T> RetResult<T> makeOKRsp() {
         return new RetResult<T>().setCode(RetCode.SUCCESS).setMsg(SUCCESS);
@@ -12,7 +13,7 @@ public class RetResponse {
     }
 
     public static <T> RetResult<T> makeErrRsp(String message) {
-        return new RetResult<T>().setCode(RetCode.FAIL).setMsg(SUCCESS);
+        return new RetResult<T>().setCode(RetCode.FAIL).setMsg(message);
     }
 
     public static <T> RetResult<T> makeRsp(int code, String msg) {

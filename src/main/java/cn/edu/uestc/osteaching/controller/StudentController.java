@@ -22,6 +22,9 @@ public class StudentController {
     @CrossOrigin
     @GetMapping("/login/{name}/{password}")
     public RetResult<List<T_Student>> findByNameAndPassword(@PathVariable("name") String name, @PathVariable("password") String password) {
+        if (studentLoginRepository.findByNameAndPassword(name, password).isEmpty()) {
+            return RetResponse.makeErrRsp("Failed!");
+        }
         return RetResponse.makeOKRsp(studentLoginRepository.findByNameAndPassword(name,password));
     }
 
@@ -54,6 +57,9 @@ public class StudentController {
 
     @GetMapping("/findall")
     public RetResult<List<T_Student>> findAll() {
+        if (studentRepository.findAll().isEmpty()){
+            return RetResponse.makeErrRsp("Empty result");
+        }
         return RetResponse.makeOKRsp(studentRepository.findAll());
     }
 
