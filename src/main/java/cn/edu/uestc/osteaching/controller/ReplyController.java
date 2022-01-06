@@ -78,7 +78,7 @@ public class ReplyController {
         System.out.println(reply);
     }*/
 
-    @DeleteMapping(path = "{rid}")
+    @DeleteMapping(path = "/{rid}")
     @Transactional
     public void deleteReply(@PathVariable("rid") Integer rid) {
         T_Reply reply= t_replyRepository.findReplyByRid(rid).orElseThrow(()->new IllegalStateException(
