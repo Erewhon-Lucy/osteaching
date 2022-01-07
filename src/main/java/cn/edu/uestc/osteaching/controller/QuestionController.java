@@ -19,11 +19,13 @@ public class QuestionController {
     @Autowired
     private T_QuestionRepository t_questionRepository;
 
+    @CrossOrigin
     @GetMapping
     public List<T_Question> getQuestion() {
         return t_questionRepository.findAll();
     }
 
+    @CrossOrigin
     @GetMapping("/{qid}")
     public T_Question getQuestionById(@PathVariable("qid")Integer qid)
     {
@@ -31,6 +33,7 @@ public class QuestionController {
                 "question with id"+qid+"does not exist"));
     }
 
+    @CrossOrigin
     @PostMapping(path = "/addNewQuestion/{title}/{content}/{sid}/{tid}")
     @Transactional
     public void addNewQuestion(@PathVariable("title")String title,
@@ -72,6 +75,7 @@ public class QuestionController {
     }
     */
 
+    @CrossOrigin
     @DeleteMapping(path = "{qid}")
     @Transactional
     public void deleteQuestion(@PathVariable("qid") Integer qid) {
@@ -82,6 +86,7 @@ public class QuestionController {
                 "question with id"+question.getQid()+"does not exist")).deleteCount_reply();
     }
 
+    @CrossOrigin
     @Transactional//不需要sql
     @PostMapping(path="/update/{qid}/{content}")
     public void updateQuestion(@PathVariable("qid") Integer qid,

@@ -45,6 +45,7 @@ public class StudentController {
         student.setSid(sid);
         student.setName(newName);
         student.setPassword(password);
+        student.setRead_count(0);
         return RetResponse.makeOKRsp(studentRepository.save(student));
     }
 
@@ -55,6 +56,7 @@ public class StudentController {
         student.setSid(sid);
         student.setName(name);
         student.setPassword(newPassword);
+        student.setRead_count(0);
         return RetResponse.makeOKRsp(studentRepository.save(student));
     }
 

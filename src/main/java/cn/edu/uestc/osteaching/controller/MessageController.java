@@ -15,12 +15,13 @@ public class MessageController {
     @Autowired
     private T_MessageRepository t_messageRepository;
 
-
+    @CrossOrigin
     @GetMapping
     public List<T_Message> getMessage() {
         return t_messageRepository.findAll();
     }
 
+    @CrossOrigin
     @PutMapping(path="/addThumbUp/{mid}")
     @Transactional
     public void addNewGood(@PathVariable("mid") Integer mid) {
@@ -30,6 +31,7 @@ public class MessageController {
         //System.out.println(message);
     }
 
+    @CrossOrigin
     @PutMapping(path="/deleteThumbUp/{mid}")
     @Transactional
     public void deleteNewGood(@PathVariable("mid") Integer mid) {
@@ -39,6 +41,7 @@ public class MessageController {
         System.out.println(message);
     }
 
+    @CrossOrigin
     @DeleteMapping(path = "{mid}")
     @javax.transaction.Transactional
     public void deleteMessage(@PathVariable("mid") Integer mid) {
