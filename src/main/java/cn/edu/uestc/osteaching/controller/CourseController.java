@@ -24,6 +24,7 @@ public class CourseController {
     @Autowired
     private CourseRepositoryImpl courseRepositoryImpl;
 
+    @CrossOrigin
     @GetMapping("/findLatest")
     public RetResult<List<T_Course>> findLatest(){
         List<T_Course> list=courseRepository.findAll();
@@ -34,17 +35,20 @@ public class CourseController {
         return RetResponse.makeOKRsp(courses);
     }
 
+    @CrossOrigin
     @GetMapping("/findAll")
     public RetResult<List<T_Course>> findAll(){
         return RetResponse.makeOKRsp(courseRepository.findAll());
     }
 
+    @CrossOrigin
     @GetMapping("/findAll/{page}/{size}")
     public RetResult<List<T_Course>> findAll(@PathVariable("page") Integer page, @PathVariable("size") Integer size){
         Pageable pageable= PageRequest.of(page,size);
         return RetResponse.makeOKRsp(courseRepository.findAll());
     }
 
+    @CrossOrigin
     @PostMapping("/save")
     public RetResult<Void> save(@RequestBody T_Course course){
         T_Course result=courseRepository.save(course);
@@ -55,11 +59,13 @@ public class CourseController {
         }
     }
 
+    @CrossOrigin
     @GetMapping("/findById/{id}")
     public RetResult<T_Course> findById(@PathVariable("id") Integer id){
         return RetResponse.makeOKRsp(courseRepository.findById(id).get());
     }
 
+    @CrossOrigin
     @PutMapping("/update")
     public RetResult<Void> update(@RequestBody T_Course course){
         T_Course result=courseRepository.save(course);
@@ -80,6 +86,7 @@ public class CourseController {
 //        }
 //    }
 
+    @CrossOrigin
     @DeleteMapping("/deleteById/{id}")
     public RetResult<Void> deleteById(@PathVariable("id") Integer id){
         courseRepository.deleteById(id);

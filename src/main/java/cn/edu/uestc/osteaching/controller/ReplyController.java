@@ -21,11 +21,13 @@ public class ReplyController {
     @Autowired
     private T_QuestionRepository t_questionRepository;
 
+    @CrossOrigin
     @GetMapping
     public List<T_Reply> getReply() {
         return t_replyRepository.findAll();
     }
 
+    @CrossOrigin
     @PostMapping(path = "/addNewReply/{content}/{qid}/{sid}/{tid}/{r_rid}") // 如果是回复问题那么rrid==qid
     @Transactional
     public void addNewReply(@PathVariable("content") String content, @PathVariable("qid") Integer qid,
@@ -56,6 +58,7 @@ public class ReplyController {
         System.out.println(reply);
     }
 
+    @CrossOrigin
     @GetMapping(path = "/getNotBeReplied") // 小红点
     public List<T_Reply> getNotBeReplied() {
 
@@ -87,6 +90,7 @@ public class ReplyController {
      * }
      */
 
+    @CrossOrigin
     @DeleteMapping(path = "{rid}")
     @Transactional
     public void deleteReply(@PathVariable("rid") Integer rid) {
