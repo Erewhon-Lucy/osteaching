@@ -28,6 +28,7 @@ public class StudentController {
         return RetResponse.makeOKRsp(studentLoginRepository.findByNameAndPassword(name,password));
     }
 
+    @CrossOrigin
     @GetMapping("/register/{name}/{password}")
     public RetResult<T_Student> save(@PathVariable("name") String name, @PathVariable("password") String password){
         T_Student student = new T_Student();
@@ -37,6 +38,7 @@ public class StudentController {
         return RetResponse.makeOKRsp(studentRepository.save(student));
     }
 
+    @CrossOrigin
     @GetMapping("/changename/{sid}/{newName}/{password}")
     public RetResult<T_Student> changeName(@PathVariable("sid") Integer sid, @PathVariable("newName") String newName, @PathVariable("password") String password) {
         T_Student student = new T_Student();
@@ -46,6 +48,7 @@ public class StudentController {
         return RetResponse.makeOKRsp(studentRepository.save(student));
     }
 
+    @CrossOrigin
     @GetMapping("/changepassword/{sid}/{name}/{newPassword}")
     public RetResult<T_Student> changePassword(@PathVariable("sid") Integer sid, @PathVariable("name") String name, @PathVariable("newPassword") String newPassword) {
         T_Student student = new T_Student();
@@ -55,6 +58,7 @@ public class StudentController {
         return RetResponse.makeOKRsp(studentRepository.save(student));
     }
 
+    @CrossOrigin
     @GetMapping("/findall")
     public RetResult<List<T_Student>> findAll() {
         if (studentRepository.findAll().isEmpty()){
@@ -63,24 +67,28 @@ public class StudentController {
         return RetResponse.makeOKRsp(studentRepository.findAll());
     }
 
+    @CrossOrigin
     @DeleteMapping("/delete/{sid}")
     public RetResult<Void> delete(@PathVariable("sid") Integer sid) {
         studentRepository.deleteById(sid);
         return RetResponse.makeOKRsp();
     }
 
+    @CrossOrigin
     @PutMapping("/update_read_count_1")
     public RetResult<Void> updateStuReadCountOne(@RequestBody T_Student student) {
         studentRepository.updateStuReadCountOne(student.getSid());
         return RetResponse.makeOKRsp();
     }
 
+    @CrossOrigin
     @PutMapping("/update_read_count_0")
     public RetResult<Void> updateStuReadCountZero(@RequestBody T_Student student) {
         studentRepository.updateStuReadCountZero(student.getSid());
         return RetResponse.makeOKRsp();
     }
 
+    @CrossOrigin
     @PutMapping("/update_all_read_count_1")
     public RetResult<Void> updateAllReadCountOne() {
         studentRepository.updateAllReadCountOne();
