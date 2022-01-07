@@ -65,6 +65,14 @@ public class CourseController {
         return RetResponse.makeOKRsp(courseRepository.findById(id).get());
     }
 
+    @GetMapping("/findByName/{cname}")
+    public RetResult<Integer> findIdByName(@PathVariable("cname") String cname){
+        T_Course course=courseRepository.findByName(cname);
+        Integer cid=course.getCid();
+        return RetResponse.makeOKRsp(cid);
+    }
+
+
     @CrossOrigin
     @PutMapping("/update")
     public RetResult<Void> update(@RequestBody T_Course course){
